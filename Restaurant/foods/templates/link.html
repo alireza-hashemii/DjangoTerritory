@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+<h1>details</h1>
+{% block content %}
+
+
+<ul>
+
+        <li>{{Food.name}}</li>
+        <li>{{Food.rate}}</li>
+        <li>{{Food.description}}</li> 
+        <img src="{{Food.photo.url}}">
+        <li>{{Food.pub_date}}</li>
+
+</ul>
+{% endblock content %}
+
+
