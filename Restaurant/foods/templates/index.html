@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"><!-- Basic -->
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title>Yamifood Restaurant - Responsive HTML5 Template</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/foods/css/bootstrap.min.css">    
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="/static/foods/css/style.css">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/static/foods/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/foods/css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<!-- Start header -->
+{% include  "templates/partials/_header.html" %}
+	<!-- End header -->
+    <div style="height: 150px;width: 100%;"></div>
+	{% block content %}
+
+
+{% include "templates/partials/content.html" %}
+
+
+	{% endblock content %}
+	<!-- Start Footer -->
+{% include "templates/partials/_footer.html" %}
+	<!-- End Footer -->
+	
+	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+	<!-- ALL JS FILES -->
+	<script src="/static/foods/js/jquery-3.2.1.min.js"></script>
+	<script src="/static/foods/js/popper.min.js"></script>
+	<script src="/static/foods/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+	<script src="/static/foods/js/jquery.superslides.min.js"></script>
+	<script src="/static/foods/js/images-loded.min.js"></script>
+	<script src="/static/foods/js/isotope.min.js"></script>
+	<script src="/static/foods/js/baguetteBox.min.js"></script>
+	<script src="/static/foods/js/form-validator.min.js"></script>
+    <script src="/static/foods/js/contact-form-script.js"></script>
+    <script src="/static/foods/js/custom.js"></script>
+</body>
+</html>

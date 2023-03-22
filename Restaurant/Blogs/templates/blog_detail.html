@@ -1,0 +1,200 @@
+{% extends "templates/partials/base.html" %}
+{% block content %}
+
+	<!-- Start All Pages -->
+	<div class="all-page-title page-breadcrumb">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>Blog</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End All Pages -->
+	
+	<!-- Start blog details -->
+	<div class="blog-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>{{blog.title}}</h2>
+						<p>{{blog.description}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-8 col-lg-8 col-12">
+					<div class="blog-inner-details-page">
+						<div class="blog-inner-box">
+							<div class="side-blog-img">
+								<img class="img-fluid" src={{blog.image.url}} alt="">							
+								<div class="date-blog-up">
+									1
+								</div>
+							</div>
+							<div class="inner-blog-detail details-page" >
+								<h3 >{{blog.description}}</h3>
+								<ul>
+									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{blog.related_user}}</span></li>
+									<li>|</li>
+									<li><i class="zmdi zmdi-time"></i>Time : <span>{{blog.created_at | date:"Y  M"}}</span></li>
+								</ul>
+								<p>{{blog.content}}</p>
+								<p></p>
+								<blockquote>
+									<p></p>
+								</blockquote>
+								<p></p>
+							</div>
+						</div>
+						<div class="blog-comment-box">
+							<h3>Comments</h3>
+						{% for cm in comments %}
+														<div class="comment-item-right">
+									<div class="pull-left">
+										<a href="#">{{cm.name}}</a>
+									</div>
+									<div class="pull-right">
+										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>{{cm.date | date:"Y  M"}}</span>
+									</div>
+									<div class="des-l">
+										<p>{{cm.message}}</p>
+									</div>
+									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
+								</div>
+						{% endfor %}
+					
+
+						</div>
+						<div class="comment-respond-box">
+							<h3>Leave your comment </h3>
+							<div class="comment-respond-form">
+								<form id="commentrespondform" class="comment-form-respond row" method="post">
+									{% csrf_token %}
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<div class="form-group">
+											<input id="name_com" class="form-control" name="name" placeholder="Name" type="text">
+										</div>
+										<div class="form-group">
+											<input id="email_com" class="form-control" name="email" placeholder="Your Email" type="email">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<div class="form-group">
+											<textarea class="form-control" name="message" id="textarea_com" placeholder="Your Message" rows="2"></textarea>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<button class="btn btn-submit">Submit comment</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
+					<div class="right-side-blog">
+						<h3>Search</h3>
+						<div class="blog-search-form">
+							<input name="search" placeholder="Search blog" type="text">
+							<button class="search-btn">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+						</div>
+						<h3>Categories</h3>
+						<div class="blog-categories">
+							<ul>
+							{% for cat in categories %}
+								<li><a href="{% url 'Blogs:category' cat.slug %}"><span>{{cat.title}}</span></a></li>
+							{% endfor %}
+							
+
+							</ul>
+						</div>
+						<h3>Recent Post</h3>
+						<div class="post-box-blog">
+							<div class="recent-post-box">
+						{% for blog  in recents  %}
+								<div class="recent-box-blog">
+									<div class="recent-img">
+										<img class="img-fluid" src={{blog.image.url}} alt="">
+									</div>
+									<div class="recent-info">
+										<ul>
+											<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{blog.related_user}}</span></li>
+											<li>|</li>
+											<li><i class="zmdi zmdi-time"></i>Time : <span>{{blog.created_at | date:"Y  M"}}</span></li>
+										</ul>
+										<h4>{{blog.description}}</h4>
+									</div>
+								</div>
+						{% endfor %}
+
+									<div class="recent-img">
+										<img class="img-fluid" src="images/post-img-01.jpg" alt="">
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<h3>Recent Tag</h3>
+						<div class="blog-tag-box">
+							<ul class="list-inline tag-list">
+                            {% for tag in tags  %}
+							 <li class="list-inline-item"><a href="{% url 'Blogs:tag' tag.slug %}">{{tag.title}}</a></li>
+							{% endfor %}
+							
+								
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<!-- End details -->
+	
+	<!-- Start Contact info -->
+	<div class="contact-imfo-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<i class="fa fa-volume-control-phone"></i>
+					<div class="overflow-hidden">
+						<h4>Phone</h4>
+						<p class="lead">
+							+01 123-456-4590
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<i class="fa fa-envelope"></i>
+					<div class="overflow-hidden">
+						<h4>Email</h4>
+						<p class="lead">
+							yourmail@gmail.com
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<i class="fa fa-map-marker"></i>
+					<div class="overflow-hidden">
+						<h4>Location</h4>
+						<p class="lead">
+							800, Lorem Street, US
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Contact info -->
+	
+
+{% endblock content %}
+	
