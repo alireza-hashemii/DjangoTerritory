@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from extensions.utils import jalali_converter
 # Create your models here.
 
 class Blog(models.Model):
@@ -18,3 +19,6 @@ class Blog(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+    def jpublish(self):
+        return jalali_converter(self.publish)
