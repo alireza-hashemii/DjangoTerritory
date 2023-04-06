@@ -19,6 +19,11 @@
                                 <a href="#!">Alireza</a>
                                 {{blog.jpublish}}
                             </p>
+                            <div>
+                                {% for category in blog.category.all %}
+                                    <a href="/">#{{category.title}}</a>
+                                {% endfor %}
+                            </div>
                         </div>
                     {% endfor %}
                     <!-- Divider-->
