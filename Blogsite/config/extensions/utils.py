@@ -31,9 +31,8 @@ def jalali_converter(time):
             time_to_list[1] = month
             break
 
-    output =  "{} {} {}".format(
+    output =  "{} {}".format(
         time_to_list[0],
         time_to_list[1],
-        time_to_list[2]
     )
     return persian_numbers_converter(output)
