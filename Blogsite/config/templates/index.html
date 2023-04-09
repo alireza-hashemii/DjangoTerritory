@@ -18,8 +18,8 @@
                             <p class="post-meta">
                                 {{blog.jpublish}}
                                 <br>
-                                Posted by
-                                <a href="#!">Alireza</a>
+                                منتشرشده توسط 
+                                <a href="#!">علیرضا</a>
                             </p>
                             <div>
                                 {% for category in blog.category.all %}
@@ -27,11 +27,12 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    {% endfor %}
+                    
                     <!-- Divider-->
                     <hr class="my-4" />
+                    {% endfor %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts</a></div>
                 </div>
             </div>
         </div>

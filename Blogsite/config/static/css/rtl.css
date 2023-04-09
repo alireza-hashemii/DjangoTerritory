@@ -2,3 +2,12 @@ body {
     direction: rtl;
     text-align: right;
 }
+
+.navbar-nav {
+    margin-left: initial !important;
+    margin-right: auto;
+}
+
+.post-meta {
+    text-align: left;
+}
