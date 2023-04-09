@@ -10,7 +10,7 @@ class Category(models.Model):
     is_active = models.BooleanField()
     publish = models.DateTimeField(auto_now=True)
     class Meta:
-        ordering = ['position']
+        ordering = ['-position']
         verbose_name = "دسته بندی"
         verbose_name_plural = "دسته بندی ها"
 

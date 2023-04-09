@@ -14,10 +14,12 @@
                                 <h2 class="post-title">{{blog.title}}</h2>
                                 <h3 class="post-subtitle">{{blog.description | truncatewords:15}}</h3>
                             </a>
+                            
                             <p class="post-meta">
+                                {{blog.jpublish}}
+                                <br>
                                 Posted by
                                 <a href="#!">Alireza</a>
-                                {{blog.jpublish}}
                             </p>
                             <div>
                                 {% for category in blog.category.all %}
