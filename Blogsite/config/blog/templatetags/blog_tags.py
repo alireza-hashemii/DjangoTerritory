@@ -6,6 +6,7 @@ register = template.Library()
 def title():
     return "وبلاگ جنگویی"
 
+
 @register.inclusion_tag("template_tags/navbar_configuration.html")
 def navbar_config():
     catrgories = Category.objects.filter(is_active=True)

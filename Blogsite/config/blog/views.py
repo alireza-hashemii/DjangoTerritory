@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Blog
+from blog.models import Blog , Category
 # Create your views here.
 
 def home(request):
@@ -16,3 +16,10 @@ def detail(request,pk):
         'blog':blog
     }
     return render(request,'post.html',context)
+
+
+def category(request,slug):
+    context = {
+        'category': Category.objects.get(slug=slug,is_active=True)
+    }
+    return render(request,'category.html',context)

@@ -26,7 +26,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
     slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
     description = models.TextField(verbose_name="محتوا")
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category,related_name='blogs')
     thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر مقاله")
     publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
     created = models.DateTimeField(auto_now_add=True)

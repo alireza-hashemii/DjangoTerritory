@@ -8,7 +8,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
                     <!-- Post preview-->
-                    {% for blog in blogs %}
+                    {% for blog in category.blogs.all %}
                         <div class="post-preview">
                             <a href="{% url 'blog:detail' blog.pk %}">
                                 <h2 class="post-title">{{blog.title}}</h2>
@@ -23,7 +23,7 @@
                             </p>
                             <div>
                                 {% for category in blog.category.all %}
-                                    <a href="{% url 'blog:category' category.slug %}">#{{category.title}}</a>
+                                    <a href="/">#{{category.title}}</a>
                                 {% endfor %}
                             </div>
                         </div>
