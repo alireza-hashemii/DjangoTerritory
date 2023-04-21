@@ -23,7 +23,9 @@
                             </p>
                             <div>
                                 {% for category in blog.category.all %}
+                                    {% if category.is_active %}
                                     <a href="{% url 'blog:category' category.slug %}">#{{category.title}}</a>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>

@@ -8,7 +8,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
                     <!-- Post preview-->
-                    {% for blog in category.blogs.all %}
+                    {% for blog in category.blogs.published %}
                         <div class="post-preview">
                             <a href="{% url 'blog:detail' blog.pk %}">
                                 <h2 class="post-title">{{blog.title}}</h2>

@@ -4,18 +4,20 @@ from blog.models import Blog , Category
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['title','slug','publish','category_to_str']
+    list_display = ['title','slug','jpublish','category_to_str']
     list_filter = ['status']
     prepopulated_fields = {'slug':('title',)}
 
     def category_to_str(self,obj):
-        categories = " , ".join([category.title for category in obj.category.all()])
+        categories = " , ".join([category.title for category in obj.category_pubished()])
         if not categories:
             return "-----"
         return categories
     category_to_str.short_description = "دسته بندی ها"
     
-        
 
-# admin.site.register(Blog,BlogAdmin)
-admin.site.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['title','jpublish','is_active']        
+
+
+admin.site.register(Category,CategoryAdmin)

@@ -3,7 +3,7 @@ from blog.models import Blog , Category
 # Create your views here.
 
 def home(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.published()
     context = {
         'blogs':blogs,
     }
