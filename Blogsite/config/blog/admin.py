@@ -19,7 +19,7 @@ def make_draft(modeladmin, request, queryset):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['title','slug','jpublish','status','category_to_str']
+    list_display = ['title','image','slug','jpublish','status','category_to_str']
     list_filter = ['status']
     prepopulated_fields = {'slug':('title',)}
     actions = [make_published,make_draft]

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.html import format_html
 from extensions.utils import jalali_converter
 # Create your models here.
 
@@ -52,6 +53,10 @@ class Blog(models.Model):
     def category_pubished(self):
         return self.category.filter(is_active=True)
     
+    def image(self):
+        return format_html("<img width=95 height=60 style ='border-radius:5px;' src='{}'>".format(self.thumbnail.url))
+    image.short_description = 'عکس مقاله'
+
     class Meta:
         verbose_name = "مقاله"
         verbose_name_plural = "مقالات"
