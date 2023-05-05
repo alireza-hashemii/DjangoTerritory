@@ -1,7 +1,13 @@
 <ul class="navbar-nav ms-auto py-4 py-lg-0">
     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">خانه</a></li>
     {% for category in categories %}
+    {% if category.parent == None %}
     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:category' category.slug %}">{{category.title}}</a></li>
+        {% if category.children.all %}
+        
+            {% include 'template_tags/category_loop.html' %}
+        {% endif %}
+    {% endif %}
     {% endfor %}
 </ul>
 </div>

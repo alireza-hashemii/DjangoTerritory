@@ -34,5 +34,5 @@ class BlogAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['title','jpublish','is_active']        
+    list_display = ['title','jpublish','parent','is_active']        
 

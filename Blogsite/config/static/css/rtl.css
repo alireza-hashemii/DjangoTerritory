@@ -22,3 +22,13 @@ body {
 .post-meta {
     text-align: left;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #0b488a;
+    border-color: #0085A1;
+  }
+
+.clearfix {
+    margin-right: 5.5cm;
+}

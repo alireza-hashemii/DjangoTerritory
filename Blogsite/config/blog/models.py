@@ -10,6 +10,7 @@ class BlogManager(models.Manager):
     
 
 class Category(models.Model):
+    parent = models.ForeignKey('self',null=True,blank=True,related_name="children",on_delete=models.SET_NULL,verbose_name="زیردسته")
     title = models.CharField(max_length=50,verbose_name="عنوان دسته بندی")
     slug = models.SlugField(verbose_name="نشانی دسته بندی")
     position = models.IntegerField(verbose_name="جایگاه دسته بندی")
@@ -58,6 +59,7 @@ class Blog(models.Model):
     image.short_description = 'عکس مقاله'
 
     class Meta:
+        ordering = ["-publish"]
         verbose_name = "مقاله"
         verbose_name_plural = "مقالات"
     

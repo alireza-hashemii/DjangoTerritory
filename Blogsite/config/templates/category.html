@@ -8,7 +8,8 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
                     <!-- Post preview-->
-                    {% for blog in category.blogs.published %}
+                    <h3 class="alert alert-primary text-center">{{category.title}}</h3>
+                    {% for blog in blogs %}
                         <div class="post-preview">
                             <a href="{% url 'blog:detail' blog.pk %}">
                                 <h2 class="post-title">{{blog.title}}</h2>
@@ -32,7 +33,14 @@
                     <hr class="my-4" />
                     {% endfor %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">پست های قدیمی تر</a></div>
+                    <div class="clearfix">
+                        {% if blogs.has_previous %}
+                        <a class="btn btn-primary float-right" href="{% url 'blog:category' category.slug blogs.previous_page_number %}">&rarr; پست های جدید تر</a>
+                        {% endif %}
+                        {% if blogs.has_next %}
+                        <a class="btn btn-primary float-right" href="{% url 'blog:category' category.slug blogs.next_page_number %}">پست های قدیمی تر &larr;</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
