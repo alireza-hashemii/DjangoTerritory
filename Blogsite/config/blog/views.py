@@ -3,11 +3,10 @@ from django.core.paginator import Paginator
 from blog.models import Blog , Category
 # Create your views here.
 
-def home(request):
+def home(request,page=1):
     blog_list = Blog.objects.published()
     paginator = Paginator(blog_list, 3)  
-    page_number = request.GET.get("page")
-    blogs = paginator.get_page(page_number)
+    blogs = paginator.get_page(page)
     context = {
         'blogs':blogs,
     }
@@ -25,9 +24,8 @@ def detail(request,pk):
 def category(request,slug,page=1):
     category = Category.objects.get(slug=slug,is_active=True)
     blogs_list = category.blogs.published()
-    paginator = Paginator(blogs_list, 2)  
-    page_number = request.GET.get("page")
-    blogs = paginator.get_page(page_number)
+    paginator = Paginator(blogs_list, 3)  
+    blogs = paginator.get_page(page)
     context = {
         'category': category,
         'blogs':blogs

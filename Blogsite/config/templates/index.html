@@ -36,10 +36,10 @@
                     <!-- Pager-->
                     <div class="clearfix">
                         {% if blogs.has_previous %}
-                        <a class="btn btn-primary float-right" href="{% url 'blog:home' %}?page={{blogs.previous_page_number}}">&rarr; پست های جدید تر</a>
+                        <a class="btn btn-primary float-right" href="{% url 'blog:home' blogs.previous_page_number %}">&rarr; پست های جدید تر</a>
                         {% endif %}
                         {% if blogs.has_next %}
-                        <a class="btn btn-primary float-right" href="{% url 'blog:home' %}?page={{blogs.next_page_number}}">پست های قدیمی تر &larr;</a>
+                        <a class="btn btn-primary float-right" href="{% url 'blog:home' blogs.next_page_number %}">پست های قدیمی تر &larr;</a>
                         {% endif %}
                     </div>
                 </div>
