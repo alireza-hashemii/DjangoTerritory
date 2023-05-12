@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.html import format_html
 from extensions.utils import jalali_converter
+from django.contrib.auth.models import User
 # Create your models here.
 
 class BlogManager(models.Manager):
@@ -35,9 +36,10 @@ class Blog(models.Model):
         ('p', "منتشر شده"),		 # publish
     )
     title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
+    author = models.ForeignKey(User,on_delete=models.SET_NULL,related_name='blogs',null=True,verbose_name="نویسنده")
     slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
     description = models.TextField(verbose_name="محتوا")
-    category = models.ManyToManyField(Category,related_name='blogs')
+    category = models.ManyToManyField(Category,related_name='blogs',verbose_name="دسته بندی")
     thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر مقاله")
     publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
     created = models.DateTimeField(auto_now_add=True)

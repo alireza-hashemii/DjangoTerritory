@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from blog.models import Blog , Category
+from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request,page=1):
@@ -31,3 +32,13 @@ def category(request,slug,page=1):
         'blogs':blogs
     }
     return render(request,'category.html',context)
+
+
+def author_list(request,username):
+    author = User.objects.get(username=username)
+    blogs = author.blogs.all()
+    context = {
+        'blogs':blogs
+    }
+    return render(request,'author_blogs.html',context)
+

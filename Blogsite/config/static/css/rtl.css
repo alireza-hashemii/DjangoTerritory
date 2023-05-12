@@ -30,5 +30,9 @@ body {
   }
 
 .clearfix {
-    margin-right: 5.5cm;
+    margin-right: 4.5cm;
+}
+
+.nav-item {
+    margin-top: 0px;
 }
