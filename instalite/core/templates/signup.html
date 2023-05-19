@@ -32,7 +32,7 @@
                 <div class="flex items-center lg:justify-between justify-around">
 
                     <a href="trending.html">
-                        <b><h1 style="font-size: 1.5rem;">Socol</h1></b>
+                        <b><h1 style="font-size: 1.5rem;">Instalite</h1></b>
                     </a>
 
                     <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
@@ -48,24 +48,15 @@
 
         <div>
             <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
-                <h1 class="lg:text-3xl text-xl font-semibold mb-6"> Sign in</h1>
+                <h1 class="lg:text-3xl text-xl font-semibold mb-6"> Sign Up</h1>
                 <!--<p class="mb-2 text-black text-lg"> Register to manage your account </p>-->
-                <form action="index.html">
-                    <!--<div class="flex lg:flex-row flex-col lg:space-x-2">
-                        <input type="text" placeholder="First Name"  class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                        <input type="text" placeholder="Last Name" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    </div>-->
-                    <input type="text" placeholder="Username" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    <input type="text" placeholder="Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    <input type="text" placeholder="Confirm Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    <div class="flex justify-start my-4 space-x-1">
-                        <div class="checkbox">
-                            <input type="checkbox" id="chekcbox1" checked>
-                            <label for="chekcbox1"><span class="checkbox-icon"></span> I Agree</label>
-                        </div>
-                        <a href="#"> Terms and Conditions</a>
-                    </div>
-                    <button type="submit" class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login</button>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input name="username" type="text" placeholder="Username" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    <input name="email" type="email" placeholder="Email" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    <input name="password" type="password" placeholder="Confirm Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    <input name="password2" type="password" placeholder="Confirm Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    <button type="submit" class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Sign Up</button>
                     <div class="text-center mt-5 space-x-2">
                         <p class="text-base"> Do you have an account? <a href="form-login.html"> Login </a></p>
                     </div>
