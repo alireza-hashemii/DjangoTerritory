@@ -36,7 +36,7 @@
                         <div class="header_search">
                             <input type="text" placeholder="Search for username..">
                             <div class="icon-search">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                <svg xmlns="" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -50,14 +50,14 @@
                         <a href="#"
                             class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                             <ion-icon name="add-circle" class="-mb-1
-                             mr-1 opacity-90 text-xl uilus-circle"></ion-icon> Upload Pics / Videos
+                             mr-1 opacity-90 text-xl uilus-circle"></ion-icon> Upload Pics
                         </a>
                          <!-- upload dropdown box -->
                         <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small" class="header_dropdown">
     
                             <!-- notivication header -->
                             <div class="px-4 py-3 -mx-5 -mt-4 mb-5 border-b">
-                                <h4>Upload Pics or Videos</h4>
+                                <h4>Upload Pics</h4>
                             </div>
     
                             <!-- notification contents -->
@@ -72,16 +72,20 @@
                                         </svg>
                                     </div>
 
-                                    <p class="my-3 leading-6"> Upload pics or videos <br> please upload her ..
+                
                                     </p>
+                                    <form action="" method="post">
+                                        {% csrf_token %}
                                     <div uk-form-custom>
                                         <input type="file">
                                         <a href="#" class="button soft-warning small"> Choose file</a>
                                     </div>
+                                    <div>
+                                        <textarea class="mt-2" placeholder="Enter your caption here..." name="caption" id="" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <button class="button soft-warning small mt-2"  type="submit">Share Post</button>
+                                </form>
     
-                                    <a href="#" class="uk-text-muted mt-3 uk-link"
-                                        uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
-                                        Or Import Video </a>
                                 </div>
     
                                 <div class="uk-flex uk-flex-column choose-upload" hidden>
@@ -100,12 +104,9 @@
                                     </form>
                                     <a href="#" class="uk-text-muted mt-3 uk-link"
                                         uk-toggle="target: .choose-upload ; animation: uk-animation-slide-left-small, uk-animation-slide-right-medium; queued: true">
-                                        Or Upload Video </a>
+                                         </a>
                                 </div>
     
-                            </div>
-                            <div class="px-4 py-3 -mx-5 -mb-4 mt-5 border-t text-sm">
-                                Your Video size Must be Maxmium 999MB
                             </div>
                         </div>
                         
@@ -121,7 +122,7 @@
                             <ul class="dropdown_scrollbar" data-simplebar>
                                 <li>
                                     <a href="#">
-                                        <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
+                                        <div class="drop_avatar"> <img src="#" alt="">
                                         </div>
                                         <div class="drop_content">
                                             <p> <strong class="text-link" >Taiye</strong>  
@@ -149,7 +150,7 @@
                             <ul class="dropdown_scrollbar" data-simplebar>
                                 <li>
                                     <a href="#">
-                                        <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
+                                        <div class="drop_avatar"> <img src="" alt="">
                                         </div>
                                         <div class="drop_content">
                                             <strong> Taiye </strong> <time> 6:43 PM</time>
@@ -171,10 +172,10 @@
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul>
-                                <li><a href="setting.html"> Account setting </a> </li>
+                                <li><a href="{% url 'splatform:setting' %}"> Account setting </a> </li>
                                 <li><a href="explore.html">explore </a> </li>
                                 <li><a href="#"> Help </a> </li>
-                                <li><a href="signin.html"> Log Out</a></li>
+                                <li><a href="{% url 'splatform:logout' %}"> Log Out</a></li>
                             </ul>
                         </div>
 

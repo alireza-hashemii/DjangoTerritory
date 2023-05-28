@@ -32,7 +32,8 @@ def signup(request):
                 user_object = User.objects.get(username=username)
                 profile_user = Profile.objects.create(username=user_object,user_id=user_object.id)
                 profile_user.save()
-                return render(request,"index.html")
+                auth.login(request,user)
+                return redirect("splatform:setting")
         else:
             messages.info(request,"passwords are not the same")
             return redirect("splatform:signup")
@@ -57,6 +58,38 @@ def signin(request):
         return render(request,"signin.html")
         
 
+@login_required(login_url="splatform:signin")
 def logout(request):
     auth.logout(request)
     return redirect("splatform:signin")
+
+
+@login_required(login_url="splatform:signin")
+def setting(request):
+    user_profile = Profile.objects.get(username=request.user)
+    if request.method == "POST":
+        if request.FILES.get("image") == None:
+            user_profile.location = request.POST["location"]
+            user_profile.biography = request.POST["bio"]
+            user_profile.save()
+
+        elif request.FILES.get("image") != None:
+            user_profile.profile_img = request.FILES.get('image')
+            user_profile.biography = request.POST["bio"]
+            user_profile.location = request.POST["location"]
+            user_profile.save()
+
+    return render(request,"setting.html",{"profile":user_profile})
+
+
+
+def upload(request):
+    if request.method == 'POST':
+        user = request.user.username
+        image = request.FILES.get('image_upload')
+        caption = request.POST['caption']
+        new_post = Post.objects.create(user=user,image=image,caption=caption)
+        new_post.save()
+        return redirect('/')
+    else:
+        return redirect('/')
