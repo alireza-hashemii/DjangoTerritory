@@ -3,13 +3,17 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile
 from django.contrib import auth
+from . models import Post
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 @login_required(login_url="splatform:signin")
 def home(request):
-    return render(request,"index.html")
+    user  = User.objects.get(username = request.user.username)
+    user_profile = Profile.objects.get(username=user)
+    posts = Post.objects.all()
+    return render(request,"index.html",{"user_profile":user_profile,"posts":posts})
 
 
 def signup(request):
@@ -86,7 +90,7 @@ def setting(request):
 def upload(request):
     if request.method == 'POST':
         user = request.user.username
-        image = request.FILES.get('image_upload')
+        image = request.FILES.get('image')
         caption = request.POST['caption']
         new_post = Post.objects.create(user=user,image=image,caption=caption)
         new_post.save()

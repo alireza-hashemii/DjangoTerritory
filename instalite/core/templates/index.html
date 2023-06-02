@@ -29,20 +29,6 @@
                             </a>
                         </div>
 
-                        <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
-                            <i class="uil-bars"></i>
-                        </div>-->
-
-                        <div class="header_search">
-                            <input type="text" placeholder="Search for username..">
-                            <div class="icon-search">
-                                <svg xmlns="" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </div>
-                        </div>
 
                     </div>
                     <div class="right-side lg:pr-4">
@@ -65,23 +51,19 @@
     
                                 <div class="flex flex-col choose-upload text-center">
                                    
-                                    <div class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
-                                            <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
-                                        </svg>
-                                    </div>
 
                 
                                     </p>
-                                    <form action="" method="post">
+                                    <form action="upload/" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                    <div uk-form-custom>
-                                        <input type="file">
+                                    <div>
+                                        <input name="image" type="file">
+                                        
                                         <a href="#" class="button soft-warning small"> Choose file</a>
                                     </div>
+
                                     <div>
-                                        <textarea class="mt-2" placeholder="Enter your caption here..." name="caption" id="" cols="30" rows="10"></textarea>
+                                        <textarea  class="mt-2" placeholder="Enter your caption here..." name="caption" id="" cols="30" rows="10"></textarea>
                                     </div>
                                     <button class="button soft-warning small mt-2"  type="submit">Share Post</button>
                                 </form>
@@ -94,7 +76,6 @@
                                             <path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p class="my-3 leading-6"> Import videos from YouTube <br> Copy / Paste your video link here </p>
                                     <form class="uk-grid-small" uk-grid>
                                         <div class="uk-width-expand">
                                             <input type="text" class="uk-input uk-form-small  bg-gray-200 " style="box-shadow:none" placeholder="Paste link">
@@ -110,65 +91,11 @@
                             </div>
                         </div>
                         
-                         <!-- Notification -->
-
-                        <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 22a2.02 2.02 0 0 1-2.01-2h4a2.02 2.02 0 0 1-.15.78a2.042 2.042 0 0 1-1.44 1.18h-.047A1.922 1.922 0 0 1 12 22zm8-3H4v-2l2-1v-5.5a8.065 8.065 0 0 1 .924-4.06A4.654 4.654 0 0 1 10 4.18V2h4v2.18c2.579.614 4 2.858 4 6.32V16l2 1v2z" fill="currentColor"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Notification </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="#" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <p> <strong class="text-link" >Taiye</strong>  
-                                                <span class="text-link"> is following you  </span>
-                                            </p>
-                                            <span class="time-ago"> 2 hours ago </span>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div>
-
-                        <!-- Messages -->
-
-                        <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Messages </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <strong> Taiye </strong> <time> 6:43 PM</time>
-                                            <p> hi tomi </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div>
 
                         <!-- profile -->
 
                         <a href="#">
-                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="header-avatar" alt="">
+                            <img src="{{user_profile.profile_img.url}}" class="header-avatar" alt="">
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul>
@@ -191,7 +118,7 @@
 
                     <!-- left sidebar-->
                     <div class="space-y-5 flex-shrink-0 lg:w-7/12">
-
+                        {% for post in posts %}
                         <!-- post 1-->
                         <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
     
@@ -200,10 +127,10 @@
                                 <div class="flex flex-1 items-center space-x-4">
                                     <a href="#">
                                         <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                            <img src="{{post.image.url}}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
                                         </div>
                                     </a>
-                                    <span class="block capitalize font-semibold "> tomi_ml </span>
+                                    <span class="block capitalize font-semibold "> {{post.user}}</span>
                                 </div>
                               <div>
                                 <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
@@ -246,7 +173,7 @@
     
                             <div uk-lightbox>
                                 <a href="{% static 'assets/images/post/img4.jpg' %}">  
-                                    <img src="{% static 'assets/images/post/img4.jpg' %}" alt="">
+                                    <img src="{{post.image.url}}" alt="">
                                 </a>
                             </div>
                             
@@ -320,413 +247,9 @@
                             </div>
     
                         </div>
-    
-                        <!-- post 2-->                       
-                    
-                        <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
-    
-                            <!-- post header-->
-                            <div class="flex justify-between items-center px-4 py-3">
-                                <div class="flex flex-1 items-center space-x-4">
-                                    <a href="#">
-                                        <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
-                                        </div>
-                                    </a>
-                                    <span class="block capitalize font-semibold "> tomi_ml </span>
-                                </div>
-                              <div>
-                                <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
-                                <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
-                              
-                                    <ul class="space-y-1">
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-share-alt mr-1"></i> Share
-                                          </a> 
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-edit-alt mr-1"></i>  Edit Post 
-                                          </a> 
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-comment-slash mr-1"></i>   Disable comments
-                                          </a> 
-                                      </li> 
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-favorite mr-1"></i>  Add favorites 
-                                          </a> 
-                                      </li>
-                                      <li>
-                                        <hr class="-mx-2 my-2 ">
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
-                                           <i class="uil-trash-alt mr-1"></i>  Delete
-                                          </a> 
-                                      </li>
-                                    </ul>
-                                
-                                </div>
-                              </div>
-                            </div>
-    
-                            <div uk-lightbox>
-                                <div class="grid grid-cols-2 gap-2 p-2">
+                        {% endfor %}
 
-                                    <a href="{% static 'assets/images/post/img9.jpg' %}" class="col-span-2">  
-                                        <img src="{% static 'assets/images/post/img9.jpg' %}" alt="" class="rounded-md w-full lg:h-76 object-cover">
-                                    </a>
-                                    <a href="{% static 'assets/images/post/img10.jpg' %}">  
-                                        <img src="{% static 'assets/images/post/img10.jpg' %}" alt="" class="rounded-md w-full h-full">
-                                    </a>
-                                    <a href="{% static 'assets/images/post/img11.jpg' %}" class="relative">  
-                                        <img src="{% static 'assets/images/post/img11.jpg' %}" alt="" class="rounded-md w-full h-full">
-                                        <div class="absolute bg-gray-900 bg-opacity-30 flex justify-center items-center text-white rounded-md inset-0 text-2xl"> + 15 more </div>
-                                    </a>
 
-                                </div>
-                            </div>
-
-                            <div class="py-3 px-4 space-y-3"> 
-                               
-                                <div class="flex space-x-4 lg:font-bold">
-                                    <a href="#" class="flex items-center space-x-2">
-                                        <div class="p-2 rounded-full text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                                            </svg>
-                                        </div>
-                                        
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-2">
-                                        <div class="p-2 rounded-full text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-2 flex-1 justify-end">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/></g></svg>
-                                        
-                                    </a>
-                                </div>
-                                <div class="flex items-center space-x-3"> 
-                                    <div class="flex items-center">
-                                        <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white ">
-                                        <img src="{% static 'assets/images/avatars/avatar-4.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                        <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                    </div>
-                                    <div class="">
-                                        Liked <strong> taiye</strong> and <strong> 209 Others </strong>
-                                    </div>
-                                </div>
-
-                                <div class="border-t pt-4 space-y-4 ">
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">Y'all like billie eillish? <urna class="i uil-heart"></urna> <i
-                                                    class="uil-grin-tongue-wink"> </i> </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">She's my favourite <i class="uil-grin-tongue-wink-alt"></i>
-                                            </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
-                                    <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
-                                    <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                        <a href="#"> <i class="uil-image"></i></a>
-                                        <a href="#"> <i class="uil-video"></i></a>
-                                    </div>
-                                </div>
-    
-                            </div>
-    
-                        </div>
-
-                        <!-- Load more-->
-                        <div class="flex justify-center mt-6" id="toggle" uk-toggle="target: #toggle ;animation: uk-animation-fade">
-                            <a href="#"
-                                class="bg-white  font-semibold my-3 px-6 py-2 rounded-full shadow-md  ">
-                                Load more ..</a>
-                        </div>
- 
-                        <!-- post 3-->
-                        <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0" id="toggle" hidden>
-    
-                            <!-- post header-->
-                            <div class="flex justify-between items-center px-4 py-3">
-                                <div class="flex flex-1 items-center space-x-4">
-                                    <a href="#">
-                                        <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
-                                        </div>
-                                    </a>
-                                    <span class="block capitalize font-semibold "> tomi_ml </span>
-                                </div>
-                              <div>
-                                <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
-                                <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
-                              
-                                    <ul class="space-y-1">
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-share-alt mr-1"></i> Share
-                                          </a> 
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-edit-alt mr-1"></i>  Edit Post 
-                                          </a> 
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-comment-slash mr-1"></i>   Disable comments
-                                          </a> 
-                                      </li> 
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-favorite mr-1"></i>  Add favorites 
-                                          </a> 
-                                      </li>
-                                      <li>
-                                        <hr class="-mx-2 my-2 ">
-                                      </li>
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
-                                           <i class="uil-trash-alt mr-1"></i>  Delete
-                                          </a> 
-                                      </li>
-                                    </ul>
-                                
-                                </div>
-                              </div>
-                            </div>
-    
-                            <div class="p-3 border-b">
-
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim laoreet dolore magna aliquam erat volutpat
-
-                            </div>
-                            
-    
-                            <div class="py-3 px-4 space-y-3"> 
-                               
-                                <div class="flex space-x-4 lg:font-bold">
-                                    <a href="#" class="flex items-center space-x-2">
-                                        <div class="p-2 rounded-full text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                                            </svg>
-                                        </div>
-                                        
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-2">
-                                        <div class="p-2 rounded-full text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-2 flex-1 justify-end">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/></g></svg>
-                                        
-                                    </a>
-                                </div>
-                                <div class="flex items-center space-x-3"> 
-                                    <div class="flex items-center">
-                                        <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white ">
-                                        <img src="{% static 'assets/images/avatars/avatar-4.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                        <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                    </div>
-                                    <div class="">
-                                        Liked <strong> taiye</strong> and <strong> 209 Others </strong>
-                                    </div>
-                                </div>
-
-                                <div class="border-t pt-4 space-y-4 ">
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">Y'all like billie eillish? <urna class="i uil-heart"></urna> <i
-                                                    class="uil-grin-tongue-wink"> </i> </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">She's my favourite <i class="uil-grin-tongue-wink-alt"></i>
-                                            </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
-                                    <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
-                                    <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                        <a href="#"> <i class="uil-image"></i></a>
-                                        <a href="#"> <i class="uil-video"></i></a>
-                                    </div>
-                                </div>
-    
-                            </div>
-    
-                        </div>
-                        
-                        <!-- post 4-->
-                        <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0" id="toggle" hidden>
-  
-                          <!-- post header-->
-                          <div class="flex justify-between items-center px-4 py-3">
-                              <div class="flex flex-1 items-center space-x-4">
-                                  <a href="#">
-                                      <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                          <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
-                                      </div>
-                                  </a>
-                                  <span class="block capitalize font-semibold "> tomi_ml </span>
-                              </div>
-                            <div>
-                              <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
-                              <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
-                            
-                                  <ul class="space-y-1">
-                                    <li> 
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                         <i class="uil-share-alt mr-1"></i> Share
-                                        </a> 
-                                    </li>
-                                    <li> 
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                         <i class="uil-edit-alt mr-1"></i>  Edit Post 
-                                        </a> 
-                                    </li>
-                                    <li> 
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                         <i class="uil-comment-slash mr-1"></i>   Disable comments
-                                        </a> 
-                                    </li> 
-                                    <li> 
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                         <i class="uil-favorite mr-1"></i>  Add favorites 
-                                        </a> 
-                                    </li>
-                                    <li>
-                                      <hr class="-mx-2 my-2 ">
-                                    </li>
-                                    <li> 
-                                        <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
-                                         <i class="uil-trash-alt mr-1"></i>  Delete
-                                        </a> 
-                                    </li>
-                                  </ul>
-                              
-                              </div>
-                            </div>
-                          </div>
-  
-                         
-                            <div class="w-full h-full">
-                                <iframe src="https://www.youtube.com/embed/pQN-pnXPaVg" frameborder="0"
-                                    uk-video="automute: true" allowfullscreen uk-responsive class="w-full lg:h-64 h-40"></iframe>
-                            </div>
-                           
-  
-                          <div class="py-3 px-4 space-y-3"> 
-                             
-                              <div class="flex space-x-4 lg:font-bold">
-                                  <a href="#" class="flex items-center space-x-2">
-                                      <div class="p-2 rounded-full text-black">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                              <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                                          </svg>
-                                      </div>
-                                      
-                                  </a>
-                                  <a href="#" class="flex items-center space-x-2">
-                                      <div class="p-2 rounded-full text-black">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                              <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
-                                          </svg>
-                                      </div>
-                                      
-                                  </a>
-                                  <a href="#" class="flex items-center space-x-2 flex-1 justify-end">
-                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
-                                          <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-                                      </svg>
-                                      
-                                  </a>
-                              </div>
-                              <div class="flex items-center space-x-3"> 
-                                  <div class="flex items-center">
-                                      <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white ">
-                                      <img src="{% static 'assets/images/avatars/avatar-4.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                      <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                  </div>
-                                  <div class="">
-                                      Liked <strong> taiye</strong> and <strong> 209 Others </strong>
-                                  </div>
-                              </div>
-
-                              <div class="border-t pt-4 space-y-4 ">
-                                  <div class="flex">
-                                      <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                          <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                      </div>
-                                      <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                          <p class="leading-6">Y'all like billie eillish? <urna class="i uil-heart"></urna> <i
-                                                  class="uil-grin-tongue-wink"> </i> </p>
-                                          <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                      </div>
-                                  </div>
-                                  <div class="flex">
-                                      <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                          <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                      </div>
-                                      <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                          <p class="leading-6">She's my favourite <i class="uil-grin-tongue-wink-alt"></i>
-                                          </p>
-                                          <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
-                                  <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
-                                  <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                      <a href="#"> <i class="uil-image"></i></a>
-                                      <a href="#"> <i class="uil-video"></i></a>
-                                  </div>
-                              </div>
-  
-                          </div>
-  
-                        </div>
                         
                         <!-- Load more-->
                         <div class="flex justify-center mt-6" id="toggle" hidden>

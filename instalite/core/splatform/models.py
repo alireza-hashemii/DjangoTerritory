@@ -23,3 +23,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post_images')
     created_at = models.DateTimeField(default=timezone.now)
     no_likes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.id} - {self.user}"
+    
