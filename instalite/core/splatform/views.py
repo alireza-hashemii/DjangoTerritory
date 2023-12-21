@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Profile
+from .models import Profile, Post , Like , FollowesCount
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
@@ -9,7 +9,8 @@ from django.contrib.auth.hashers import make_password
 
 @login_required(login_url="splatform:signin")
 def home(request):
-    return render(request,"index.html")
+    posts = Post.objects.all()
+    return render(request,"index.html",{'posts':posts})
 
 
 def signup(request):
@@ -86,10 +87,65 @@ def setting(request):
 def upload(request):
     if request.method == 'POST':
         user = request.user.username
-        image = request.FILES.get('image_upload')
+        image = request.FILES.get('image')
         caption = request.POST['caption']
         new_post = Post.objects.create(user=user,image=image,caption=caption)
         new_post.save()
         return redirect('/')
+    else:
+        return redirect('/')
+    
+
+@login_required(login_url="splatform:signin")
+def profile(request,username):
+    profile_visitor = request.user.username
+    user_object = User.objects.get(username=username)
+    user_profile = Profile.objects.get(username=user_object)
+    user_posts = Post.objects.filter(user=username)
+    context = {
+        'profile_visitor':profile_visitor,
+        'user_object':user_object,
+        'user_profile':user_profile,
+        'user_posts':user_posts,
+        'lenposts':len(user_posts)
+    }
+    return render(request,'profile.html',context)
+
+def like_post(request,postid):
+    post = Post.objects.get(id = postid)
+    is_liked = Like.objects.filter(post_id= post.id, username= post.user)
+
+    if is_liked.exists():
+        is_liked.delete()
+        post.no_likes -= 1
+        post.save()    
+        return redirect('/')
+    
+    elif not is_liked.exists():
+        new_like = Like.objects.create(post_id= postid, username= request.user.username)
+        new_like.save()
+        post.no_likes += 1
+        post.save()
+        return redirect('/')
+
+
+@login_required(login_url="splatform:signin")
+def follow(request):
+    if request.method == 'POST':   
+        user = request.POST['user']
+        follower = request.POST['follower']
+
+        user_obj = User.objects.get(username=user)
+        user_profile = Profile.objects.get(username=user_obj)
+        if FollowesCount.objects.filter(follower=follower,user=user).exists():
+            delete_follower = FollowesCount.objects.get(follower=follower,user=user)
+            delete_follower.delete()
+            user_profile.follower -= 1
+            return redirect('/profile/' + user)
+        else:
+            new_follower = FollowesCount.objects.create(follower=follower,user=user)
+            new_follower.save()
+            user_profile.follower += 1
+            return redirect('/profile/' + user)
     else:
         return redirect('/')

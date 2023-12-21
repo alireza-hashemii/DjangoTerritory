@@ -23,3 +23,21 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post_images')
     created_at = models.DateTimeField(default=timezone.now)
     no_likes = models.IntegerField(default=0)
+
+    
+    def __str__(self):
+        return f"{self.user} - {self.id}"
+    
+class Like(models.Model):
+    post_id = models.CharField(max_length=40)
+    username= models.CharField(max_length=70)
+
+    def __str__(self):
+        return self.username
+    
+class FollowesCount(models.Model):
+    follower = models.CharField(max_length=100) 
+    user = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user
