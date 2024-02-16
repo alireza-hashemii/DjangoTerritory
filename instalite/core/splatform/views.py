@@ -3,14 +3,22 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile, Post , Like , FollowesCount
 from django.contrib import auth
+from . models import Post
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 @login_required(login_url="splatform:signin")
 def home(request):
+
     posts = Post.objects.all()
     return render(request,"index.html",{'posts':posts})
+
+    user  = User.objects.get(username = request.user.username)
+    user_profile = Profile.objects.get(username=user)
+    posts = Post.objects.all()
+    return render(request,"index.html",{"user_profile":user_profile,"posts":posts})
+
 
 
 def signup(request):

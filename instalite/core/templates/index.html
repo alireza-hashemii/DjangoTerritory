@@ -29,20 +29,6 @@
                             </a>
                         </div>
 
-                        <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
-                            <i class="uil-bars"></i>
-                        </div>-->
-
-                        <div class="header_search">
-                            <input type="text" placeholder="Search for username..">
-                            <div class="icon-search">
-                                <svg xmlns="" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </div>
-                        </div>
 
                     </div>
                     <div class="right-side lg:pr-4">
@@ -65,24 +51,19 @@
     
                                 <div class="flex flex-col choose-upload text-center">
                                    
-                                    <div class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
-                                            <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
-                                        </svg>
-                                    </div>
 
                 
                                     </p>
-
                                     <form action="upload/" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                    <div uk-form-custom>
+                                    <div>
                                         <input name="image" type="file">
+                                        
                                         <a href="#" class="button soft-warning small"> Choose file</a>
                                     </div>
+
                                     <div>
-                                        <textarea class="mt-2" placeholder="Enter your caption here..." name="caption" id="" cols="30" rows="10"></textarea>
+                                        <textarea  class="mt-2" placeholder="Enter your caption here..." name="caption" id="" cols="30" rows="10"></textarea>
                                     </div>
                                     <button class="button soft-warning small mt-2"  type="submit">Share Post</button>
                                 </form>
@@ -95,7 +76,6 @@
                                             <path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p class="my-3 leading-6"> Import videos from YouTube <br> Copy / Paste your video link here </p>
                                     <form class="uk-grid-small" uk-grid>
                                         <div class="uk-width-expand">
                                             <input type="text" class="uk-input uk-form-small  bg-gray-200 " style="box-shadow:none" placeholder="Paste link">
@@ -111,65 +91,11 @@
                             </div>
                         </div>
                         
-                         <!-- Notification -->
-
-                        <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 22a2.02 2.02 0 0 1-2.01-2h4a2.02 2.02 0 0 1-.15.78a2.042 2.042 0 0 1-1.44 1.18h-.047A1.922 1.922 0 0 1 12 22zm8-3H4v-2l2-1v-5.5a8.065 8.065 0 0 1 .924-4.06A4.654 4.654 0 0 1 10 4.18V2h4v2.18c2.579.614 4 2.858 4 6.32V16l2 1v2z" fill="currentColor"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Notification </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="#" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <p> <strong class="text-link" >Taiye</strong>  
-                                                <span class="text-link"> is following you  </span>
-                                            </p>
-                                            <span class="time-ago"> 2 hours ago </span>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div>
-
-                        <!-- Messages -->
-
-                        <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Messages </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <strong> Taiye </strong> <time> 6:43 PM</time>
-                                            <p> hi tomi </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div>
 
                         <!-- profile -->
 
                         <a href="#">
-                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="header-avatar" alt="">
+                            <img src="{{user_profile.profile_img.url}}" class="header-avatar" alt="">
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul>
@@ -192,7 +118,7 @@
 
                     <!-- left sidebar-->
                     <div class="space-y-5 flex-shrink-0 lg:w-7/12">
-
+                      
                         <!-- post 1-->
                         {% for post in posts %}
                         <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
@@ -202,7 +128,7 @@
                                 <div class="flex flex-1 items-center space-x-4">
                                     <a href="#">
                                         <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                            <img src="{{post.image.url}}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
                                         </div>
                                     </a>
                                     <a href="{% url 'splatform:profile' post.user %}"><span class="block capitalize font-semibold "> {{post.user}}</span></a>

@@ -24,6 +24,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     no_likes = models.IntegerField(default=0)
 
+
     
     def __str__(self):
         return f"{self.user} - {self.id}"
@@ -41,3 +42,8 @@ class FollowesCount(models.Model):
 
     def __str__(self):
         return self.user
+
+    def __str__(self):
+        return f"{self.id} - {self.user}"
+    
+
