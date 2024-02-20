@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile, Post , Like , FollowesCount
 from django.contrib import auth
-from . models import Post
+from . models import Post ,Comment
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 # Create your views here.
@@ -157,3 +157,23 @@ def follow(request):
             return redirect('/profile/' + user)
     else:
         return redirect('/')
+    
+
+# def comment(request):
+#     if request.method == "POST":
+#         post_id = request.POST['post_id']
+#         comment = request.POST["comment"]
+#         user = request.POST["user"]
+
+#         new_comment = Comment.objects.create(user=user,content=comment)
+#         new_comment.save()
+
+#         post = Post.objects.get(id = post_id)
+        
+#         post.no_comments = post.no_comments + 1
+#         post.comments.set([new_comment])
+#         post.save()
+#         return redirect("/")
+
+#     else:
+#         return redirect("/")

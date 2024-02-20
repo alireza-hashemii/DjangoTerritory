@@ -20,6 +20,8 @@ class Post(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4)
     user = models.CharField(max_length=100)
     caption = models.TextField(blank=True)
+    no_comments = models.IntegerField(default=0)
+    comments = models.ManyToManyField("Comment",related_name="posts",null=True,blank=True)
     image = models.ImageField(upload_to='post_images')
     created_at = models.DateTimeField(default=timezone.now)
     no_likes = models.IntegerField(default=0)
@@ -40,10 +42,13 @@ class FollowesCount(models.Model):
     follower = models.CharField(max_length=100) 
     user = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.user
 
     def __str__(self):
         return f"{self.id} - {self.user}"
     
+
+class Comment(models.Model):
+    content = models.TextField()
+    date_time = models.DateTimeField(default= timezone.now)
+    user = models.CharField(max_length= 90)
 

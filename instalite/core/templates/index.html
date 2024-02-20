@@ -241,14 +241,17 @@
                                         </div>
                                     </div>
                                 </div> -->
-
+                            <!-- <form action="comment/" method="post">
+                                {% csrf_token %}
                                 <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
-                                    <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
+                                    <input name="comment" type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
+                                    <input name="post_id" type="hidden" value="{{post.id}}"  class="bg-transparent max-h-10 shadow-none">
+                                    <input name="user" type="hidden" value="{{post.user}}"  class="bg-transparent max-h-10 shadow-none">
                                     <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                        <a href="#"> <i class="uil-image"></i></a>
-                                        <a href="#"> <i class="uil-video"></i></a>
+                                        <strong><button type="submit" >Send</button></strong>
                                     </div>
                                 </div>
+                            </form> -->
     
                             </div>
     
